@@ -23,3 +23,7 @@ def pay_with_mobile_money():
     return jsonify(result)
 
 
+@payments_blueprint.route('/flutterwavewebhook', methods=['POST'])
+def flutterwavewebhook():
+    flutterhook_data =  request.data
+    print(flutterhook_data)
