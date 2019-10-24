@@ -1,0 +1,17 @@
+[2019-10-24 18:53:39,808] INFO in _internal: 127.0.0.1 - - [24/Oct/2019 18:53:39] "GET /test HTTP/1.1" 500 -
+[2019-10-24 18:54:16,754] INFO in _internal:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2019-10-24 18:54:16,760] INFO in _internal:  * Restarting with stat
+[2019-10-24 18:54:16,961] WARNING in _internal:  * Debugger is active!
+[2019-10-24 18:54:16,962] INFO in _internal:  * Debugger PIN: 325-667-054
+[2019-10-24 18:54:21,351] INFO in _internal: 127.0.0.1 - - [24/Oct/2019 18:54:21] "GET /test HTTP/1.1" 500 -
+[2019-10-24 19:03:56,462] INFO in _internal:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2019-10-24 19:03:56,465] INFO in _internal:  * Restarting with stat
+[2019-10-24 19:03:56,715] WARNING in _internal:  * Debugger is active!
+[2019-10-24 19:03:56,716] INFO in _internal:  * Debugger PIN: 325-667-054
+[2019-10-24 19:06:30,599] INFO in _internal: 127.0.0.1 - - [24/Oct/2019 19:06:30] "GET / HTTP/1.1" 500 -
+[2019-10-24 19:17:27,105] INFO in _internal:  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+[2019-10-24 19:17:27,108] INFO in _internal:  * Restarting with stat
+[2019-10-24 19:17:27,327] WARNING in _internal:  * Debugger is active!
+[2019-10-24 19:17:27,328] INFO in _internal:  * Debugger PIN: 325-667-054
+[2019-10-24 19:17:33,207] DEBUG in __init__: Hello i'm able to log
+[2019-10-24 19:17:33,208] INFO in _internal: 127.0.0.1 - - [24/Oct/2019 19:17:33] "GET / HTTP/1.1" 200 -

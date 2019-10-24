@@ -8,7 +8,7 @@ def create_app(test_config=None):
 
     #Configure Logging before creating the appp instance
     logging.basicConfig(
-        filename='application.log',
+        filename='logs/application.log',
         format='[%(asctime)s] %(levelname)s in %(module)s: %(message)s',
         level=logging.DEBUG
     )
