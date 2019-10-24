@@ -71,3 +71,5 @@ def send_to_flutterwave(data):
     print("#######################")
     response =  requests.post(endpoint, headers={'content-type': 'application/json',}, data=json.dumps(payload))
     print(response.json())
+
+    return json.dumps(payload)

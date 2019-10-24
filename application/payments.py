@@ -1,5 +1,7 @@
-from flask import Blueprint, request, jsonify
+import os
+from flask import Blueprint, request, jsonify, Response
 from flask.json import loads
+from flask import current_app
 from .utils.validations import *
 from .utils.mobilemoney import send_to_flutterwave
 
@@ -26,4 +28,25 @@ def pay_with_mobile_money():
 @payments_blueprint.route('/flutterwavewebhook', methods=['POST'])
 def flutterwavewebhook():
     flutterhook_data =  request.data
-    print(flutterhook_data)
+    hash =  request.headers.get['HTTP_VERIF_HASH']
+    
+    if hash is None:
+        current_app.logger.debug("someOne tried to send with no HASH")
+        #TO-DO
+        #Log everything
+        pass
+    if hash != os.getenv("FLUTTERWAVE_WEBHOOK_HASH"):
+        current_app.logger.debug("someOne tried to send with fake HASH")
+        #TO-DO
+        #Log everything
+        pass
+    if hash == os.getenv("FLUTTERWAVE_WEBHOOK_HASH"):
+        #TO-DO
+        #Query Db and confirm the data
+        return Response(status=200)
+
+@payments_blueprint.route('/test', methods=['POST', 'GET'])
+def test():
+    current_app.logger.debug("I'm logging into The blueprint")
+    print("Runnning")
+    return Response(status=200)
