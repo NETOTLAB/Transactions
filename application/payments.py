@@ -27,7 +27,7 @@ def deposit_with_mobile_money():
 
 @payments_blueprint.route('/flutterwavewebhook', methods=['POST'])
 def flutterwavewebhook():
-    flutterhook_data =  request.data
+    flutterhook_data =  request.get_json()
     current_app.logger.debug("Received headers")
     current_app.logger.debug(request.headers)
     hash =  request.headers.get['HTTP_VERIF_HASH']

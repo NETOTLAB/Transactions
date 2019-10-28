@@ -24,7 +24,7 @@ def encryptData(key, plainText):
     padDiff = blockSize - (len(plainText) % blockSize)
     cipher = DES3.new(key, DES3.MODE_ECB)
     plainText = "{}{}".format(plainText, "".join(chr(padDiff) * padDiff))
-    encrypted = base64.b64encode(cipher.encrypt(plainText))
+    encrypted = base64.b64encode(cipher.encrypt(plainText.encode("utf8")))
     return encrypted
 
 
