@@ -1,7 +1,12 @@
 import os 
 import logging
 from flask import Flask, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from . import config
 
+db = SQLAlchemy()
+migrate = Migrate()
 # FLUTTERWAVE SANDBOX API URL: https://ravesandboxapi.flutterwave.com
 
 def create_app(test_config=None):
@@ -14,9 +19,10 @@ def create_app(test_config=None):
     )
 
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY='dev',
-    )
+    app.config.from_object(config.DevConfig)
+    db.init_app(app)
+    migrate.init_app(app, db)
+    
 
     #Register Payment Blueprint
     from . import payments

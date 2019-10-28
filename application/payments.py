@@ -9,8 +9,8 @@ from .utils.mobilemoney import send_to_flutterwave
 payments_blueprint =  Blueprint('payments', __name__)
 
 
-@payments_blueprint.route('/paywithmobilemoney', methods=['POST'])
-def pay_with_mobile_money():
+@payments_blueprint.route('/depositwithmobilemoney', methods=['POST'])
+def deposit_with_mobile_money():
     data = request.get_json()
     
     #Validate the Data
@@ -28,15 +28,17 @@ def pay_with_mobile_money():
 @payments_blueprint.route('/flutterwavewebhook', methods=['POST'])
 def flutterwavewebhook():
     flutterhook_data =  request.data
+    current_app.logger.debug("Received headers")
+    current_app.logger.debug(request.headers)
     hash =  request.headers.get['HTTP_VERIF_HASH']
     
     if hash is None:
-        current_app.logger.debug("someOne tried to send with no HASH")
+        current_app.logger.debug("someOne tried to send Flutterwave webhook with no HASH")
         #TO-DO
         #Log everything
         pass
     if hash != os.getenv("FLUTTERWAVE_WEBHOOK_HASH"):
-        current_app.logger.debug("someOne tried to send with fake HASH")
+        current_app.logger.debug("someOne tried to send Flutterwave webhook  with fake HASH")
         #TO-DO
         #Log everything
         pass
